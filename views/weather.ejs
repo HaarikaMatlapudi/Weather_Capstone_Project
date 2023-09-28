@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Weather Application</title>
+  <style>
+    .main{
+        width: 1520px;
+        height: 690px;
+        background-color: rgb(191, 226, 238);
+    }
+    .search{
+        width: 550px;
+        height: 50px;
+        position: relative;
+        padding-top: 20px;
+        margin-left:500px;
+    }
+    #i1{
+        width: 500px;
+        height: 35px;
+        padding-left: 10px;
+        border-radius: 25px;
+    }
+    #b1{
+        width: 75px;
+        height: 39px;
+        right: 36px;
+        position: absolute;
+        border-radius: 25px;
+        background-color: rgba(245, 245, 245,0.42) ;
+    }
+    .radio{
+        width: 350px;
+        height: 200px;
+        border-radius: 25px;
+        margin: 30px 0px 0px 80px;
+        padding: 50px 0px 0px 50px;
+        background-color: rgba(245, 245, 245,0.42);
+    }
+    .sub{
+        width: 1458px;
+        height: 580px;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 20px 0px 20px;
+        margin-left: 10px;
+
+    }
+    .sub2{
+        width: 800px;
+        height: 400px;
+        border-radius: 25px;
+        margin: 80px 80px 0px 0px;
+        background-color: rgba(245, 245, 245,0.42);
+    }
+    .cityname{
+        width: 320px;
+        height: 80px;
+        text-align: center;
+        border-radius: 25px;
+        padding-top: 5px;
+        margin: 100px 0px 0px 120px;
+        background-color: rgba(245, 245, 245,0.42);
+    }
+    #content{
+        width: 110px;
+        height: 100px;
+        border-radius: 25px;
+        align-items: center;
+        padding: 80px 30px 20px 60px;
+        position: absolute;
+        left: 590px;
+        bottom:168px;
+        background-color: rgba(245, 245, 245,0.42);
+    }
+    #img{
+        width: 800px;
+        height: 400px;
+        border-radius: 25px;
+    }
+    
+    .picdetails{
+        width: 800px;
+        height: 400px;
+        position: relative;
+    }
+  </style> 
+  </head>
+  <body>
+    <div class="main">
+        <div class="search">
+            <form method="post" action="/dashboard">
+                <span><input type="text" name="loc" value="<%=city %>" placeholder="Enter any city" id="i1">
+                <button name="btn" id="b1">Search</button></span>
+            </form>
+        </div>
+        <!--sub class consists of sub1 and sub2 div tags-->
+        <div class="sub">
+            <!--sub1 is combination of cityname and radio buttons div tag-->
+            <div class="sub1">
+                <div class="cityname">
+                    <h1><%=city %></h1>
+                </div>
+                <br>
+                <div class="radio">
+                    <strong>
+                        <form>
+                            <input type="radio" id="r1" name="weather">Temperature<br><br>
+                            <input type="radio" id="r2" name="weather">Humidity<br><br>
+                            <input type="radio" id="r3" name="weather">Windspeed<br><br>
+                            <input type="radio" id="r4" name="weather">UV Radiation
+                        </form>
+                    </strong>
+                </div>
+            </div>
+            <!--sub2 consists of main content-->
+            <div class="sub2">
+                <div class="picdetails">
+                  <img id="img" src="https://images.ctfassets.net/hrltx12pl8hq/6TIZLa1AKeBel0yVO7ReIn/1fc0e2fd9fcc6d66b3cc733aa2547e11/weather-images.jpg?fit=fill&w=600&h=400">
+                    <h1 id="content"></h1> 
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    document.getElementById("r1").addEventListener("click",function temp(){
+      let t = '<%-temperature %>';
+      document.querySelector("img").src="https://cdn.pixabay.com/photo/2014/06/15/15/27/blue-sky-369360_1280.jpg";
+      document.getElementById("content").innerHTML=t+"C";
+    });
+    document.getElementById("r2").addEventListener("click",function humid(){
+      let h = '<%-humid %>';
+      document.querySelector("img").src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShJRsHash9XShxKBrirT890nKxTGGkaZKnJWLfW_Yra5pzHNKEGuUvSYX67XVJE9K3CuE&usqp=CAU";
+      document.getElementById("content").innerHTML=h+"%";
+    });
+    document.getElementById("r3").addEventListener("click",function wind(){ 
+      let w = '<%-windspeed %>';
+      document.querySelector("img").src="https://upload.wikimedia.org/wikipedia/commons/8/81/Weather_Station_at_Feilding_Waste_Water_Treatment_Plant.JPG";
+      document.getElementById("content").innerHTML=w+"Km/h";
+    });
+    document.getElementById("r4").addEventListener("click",function uvrad(){
+      let u = '<%-uvradiation %>';
+      document.querySelector("img").src="https://www.cdc.gov/homepage/images/cards/uv-radiation_720x400px.jpg?_=67429";
+      document.getElementById("content").innerHTML=u;
+    });
+  </script>
+  </body>
+</html>

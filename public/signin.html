@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Signin Page</title>
+        <style>
+            .main{
+                width: 1200px;
+                height: 500px;
+            }
+            .sub1{
+                width: 400px;
+                height: 400px;
+                left: 300px;
+                position: absolute;
+            }
+            .sub2{
+                width: 250px;
+                height: 420px;
+                color: black;
+                margin-top: 100px;
+                margin-left: 700px;
+                padding-top: 20px;
+                padding-left: 50px;
+                border-radius: 50px;
+                position: relative;
+                background-color: rgb(110, 110, 230);
+            }
+            input{
+                border-radius: 5px;
+            }
+            img{
+                width: 250px;
+                height: 250px;
+                margin-top: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="sub1">
+                <img src="https://media.gettyimages.com/id/519441563/vector/cartoon-kid-with-personal-computer.jpg?s=170x170&k=20&c=Evp4XK5yMmuDi19UBPsWDkSoXMSDkvgMcJaP1AUyQX0=">
+            </div>
+            <div class="sub2">
+                <h2>Sign In</h2>
+                <form method="post" action="/signinsubmit">
+                First name: <br>
+                <input id="f1" type="text" name="fname"><br><br>
+                Last name:<br>
+                <input id="l1" type="text" name="lname"><br><br>
+                Email:<br>
+                <input id="e1" type="email" name="Email"><br><br>
+                Password:<br>
+                <input id="p1" type="password" name="password"><br><br>
+                Confirm Password:<br>
+                <input id="p2" type="password" name="pwd1"><br><br>
+                <button id="b1" type="submit">Submit</button>
+            </form>
+            </div>
+        </div>
+    </body>
+</html>
