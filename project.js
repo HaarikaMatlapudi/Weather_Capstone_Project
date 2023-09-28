@@ -61,7 +61,6 @@ app.post('/signinsubmit', (req, res) => {
 });
 
 app.post('/loginsubmit', function (req, res) {
-  // passwordHash.verify(req.query.password, hashedPassword)
  
    db.collection('user')
    .where('Email','==',req.body.email)
